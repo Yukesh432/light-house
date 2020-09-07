@@ -129,12 +129,14 @@
 			<div class="container">
 				<div id="responsive-nav">
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="hotdeal.html">Hot Deals</a></li>
-						<li><a href="{% url 'light' %}">Lights</a></li>
-						<li><a href="{% url 'switch' %}">Switchs</a></li>
-						<li><a href="{% url 'cable' %}">Cables</a></li>
-						<li><a href="{% url 'gadget' %}">Electric Gadgets</a></li>
+						{% with url_name=request.resolver_match.url_name %}
+						<li class="{% if url_name == 'index'%} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
+						<!-- <li><a href="hotdeal.html">Hot Deals</a></li> -->
+						<li class="{% if url_name == 'light'%} active {% endif %}"><a href="{% url 'light' %}">Lights</a></li>
+						<li class="{% if url_name == 'switch'%} active {% endif %}"><a href="{% url 'switch' %}">Switchs</a></li>
+						<li class="{% if url_name == 'cable'%} active {% endif %}"><a href="{% url 'cable' %}">Cables</a></li>
+						<li class="{% if url_name == 'gadget'%} active {% endif %}"><a href="{% url 'gadget' %}">Electric Gadgets</a></li>
+						{% endwith %}
 					</ul>
 				</div>
 			</div>
@@ -220,7 +222,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -247,7 +249,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -269,7 +271,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -293,7 +295,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -317,7 +319,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -503,6 +505,5 @@
 		<script src="{% static 'js/nouislider.min.js'%}"></script>
 		<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
 		<script src="{% static 'js/main.js' %}"></script>
-
 	</body>
 </html>
