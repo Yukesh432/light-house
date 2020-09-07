@@ -158,38 +158,26 @@
 						<!-- aside Widget -->
 						<div class="aside">
 							<h3 class="aside-title">Top selling</h3>
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="{% static './img/product01.png' %}" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
+							{% if cables %}
+								{% for cable in cables %}
+										{% if cable.is_topselling %}
+									
+												<div class="product-widget">
+													<div class="product-img">
+														<img src="{{ cable.photo_main.url }}" alt="">
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name"><a href="{% url 'productview' %}">{{cable.title}}</a></h3>
+														<h4 class="product-price">Rs.{{cable.price}} <del class="product-old-price">Rs.{{cable.price}}</del></h4>
+													</div>
+												</div>
+												
+										{% endif %}
+									{% endfor %}
+								{% endif %}
 
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="{% static './img/product02.png' %}" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
-
-							<div class="product-widget">
-								<div class="product-img">
-									<img src="{% static './img/product03.png' %}" alt="">
-								</div>
-								<div class="product-body">
-									<p class="product-category">Category</p>
-									<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-								</div>
-							</div>
+							
 						</div>
 						<!-- /aside Widget -->
 					</div>
@@ -199,20 +187,22 @@
 					<div id="store" class="col-md-9">
 
 						<div class="row">
+							{% if cables %}
+							{% for cable in cables %}
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="{% static './img/product01.png' %}" alt="">
-										<div class="product-label">
+										<img src="{{ cable.photo_main.url }}" alt="">
+										<!-- <div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
-										</div>
+										</div> -->
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h3 class="product-name"><a href="{% url 'productview' %}">{{cable.title}}</a></h3>
+										<h4 class="product-price">Rs.{{cable.price}} <del class="product-old-price">Rs.{{cable.price}}</del></h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -221,236 +211,21 @@
 											<i class="fa fa-star"></i>
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>		
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
+											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Add to wishlist</span></button>		
+											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Quick view</span></a>
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add to cart</button>
 									</div>
 								</div>
 							</div>
 							<!-- /product -->
+							{% endfor %}
+							{% endif %}
 
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product02.png' %}" alt="">
-										<div class="product-label">
-											<span class="new">NEW</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product03.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<div class="clearfix visible-lg visible-md"></div>
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product04.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product05.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product06.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product07.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product08.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-
-							<div class="clearfix visible-sm visible-xs"></div>
-
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="{% static './img/product09.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-										<div class="product-rating">
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-											<a href="{% url 'productview' %}" class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
+							
+						
 						</div>
 					</div>
 				</div>
