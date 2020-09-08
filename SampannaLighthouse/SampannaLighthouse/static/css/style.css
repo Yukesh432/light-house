@@ -974,10 +974,6 @@ textarea.input {
   height: 1px;
   background-color: #E4E7ED;
 }
-.product .product-body .product-btns>a{
-  cursor: pointer;
-}
-
 .product .product-body .product-btns>button{
   position: relative;
   width: 40px;
