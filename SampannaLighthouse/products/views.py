@@ -1,34 +1,46 @@
-from django.shortcuts import render
-from .models import Cable, Switch, Light
-
+from django.shortcuts import render, get_object_or_404
+from .models import Product, Category
+from django.http import HttpResponse
 
 def light(request):
-    lights= Light.objects.order_by('-list_date').filter(is_published= True)
+    product = Product.objects.filter(category= 1)
     context= {
-        'lights': lights
-    } 
-   
+        'products' : product
+    }
     return render(request, 'products/lights.html', context)
 
-def cable(request):
-    cables= Cable.objects.order_by('-list_date').filter(is_published= True)
-    context= {
-        'cables': cables
-    } 
-    return render(request, 'products/cables.html', context)
-
 def switch(request):
-    switchs= Switch.objects.order_by('-list_date').filter(is_published= True)
+    product = Product.objects.filter(category= 2)
     context= {
-        'switchs': switchs
-    } 
+        'products' : product
+    }
     return render(request, 'products/switchs.html', context)
 
+def cable(request):
+    product = Product.objects.filter(category= 3)
+    context= {
+        'products' : product
+    }
+    return render(request, 'products/cables.html', context)
+
 def gadget(request):
-    return render(request, 'products/gadgets.html')
+    product = Product.objects.filter(category= 4)
+    context= {
+        'products' : product
+    }
+    return render(request, 'products/gadgets.html', context)
 
-def productview(request):
-    return render(request, 'products/productview.html')
+def productview(request, product_id):
+    # product = Product.objects.all()
 
-def dummy(request, username):
-    return render(request, 'products/dummy.html')
+    # product= [gadget1, switch]
+    product= Product.objects.get(id= product_id)
+    # switch= Switch.objects.get(id= product_id)
+    context = {
+        'product' : product
+    }
+    return render(request, 'products/productview.html', context)
+def cate(request):
+    return render(request, 'products/category.html')
+# def dummy(request):
+#     return render(request, 'products/dummy.html') 

@@ -86,7 +86,8 @@
 													<img src="{% static 'img/product01.png' %}" alt="">
 												</div>
 												<div class="product-body">
-													<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
+													<h3 class="product-name"><a href="productview/{{gadget1.id}}
+														">title goes here</a></h3>
 													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
@@ -97,7 +98,7 @@
 													<img src="{% static './img/product02.png' %}" alt="">
 												</div>
 												<div class="product-body">
-													<h3 class="product-name"><a href="{% url 'productview' %}">product name goes here</a></h3>
+													<h3 class="product-name"><a href="productview/{{gadget1.id}}">product name goes here</a></h3>
 													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
@@ -191,7 +192,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">New Products</h3>
+							<h3 class="title" style="font-size: 20px; color:red">New Products 1</h3>
 							<!-- <div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">ceiling Light</a></li>
@@ -216,7 +217,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Light</p>
-												<h3 class="product-name"><a href="{% url 'productview' %}">Himstar ceiling light</a></h3>
+												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Himstar ceiling light</a></h3>
 												<h4 class="product-price">Rs980.00 <del class="product-old-price">Rs990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -227,7 +228,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -243,7 +244,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="{% url 'productview' %}">Himstar pannel light</a></h3>
+												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Himstar pannel light</a></h3>
 												<h4 class="product-price">Rs980.00 <del class="product-old-price">Rs990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -254,7 +255,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -270,13 +271,13 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="{% url 'productview' %}">Smart Controller</a></h3>
+												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Smart Controller</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -289,7 +290,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="{% url 'productview' %}">Power & Controll device</a></h3>
+												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Power & Controll device</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -300,7 +301,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -313,7 +314,7 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="{% url 'productview' %}">Protection device</a></h3>
+												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Protection device</a></h3>
 												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
@@ -324,7 +325,7 @@
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
@@ -415,7 +416,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
 												</div>
 											</div>
 										</div>
@@ -438,7 +439,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -464,7 +465,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -487,10 +488,11 @@
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -531,7 +533,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -555,7 +557,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -581,7 +583,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -607,7 +609,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>										
 										</div>
@@ -647,7 +649,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
 												</div>
 											</div>
 										</div>
@@ -670,7 +672,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -696,7 +698,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -722,7 +724,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -763,7 +765,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -787,7 +789,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -813,7 +815,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -839,7 +841,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>										
 										</div>

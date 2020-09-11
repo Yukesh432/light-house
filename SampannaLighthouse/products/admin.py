@@ -1,31 +1,20 @@
 from django.contrib import admin
 
-from .models import Cable, Switch, Light
+from .models import Category, Product
 
-class CableAdmin(admin.ModelAdmin):
-    list_display= ('id', 'title', 'is_published', 'price', 'list_date', 'is_topselling')
-    list_display_links = ('id', 'title')
-    
-    list_editable = ('is_published','is_topselling')
-    search_fields = ('title', 'description', 'price')
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'category', 'price', 'is_published', 'is_topselling')
+    list_editable = ('is_published', 'is_topselling',)
+    list_display_link = ('id', 'title')
+    search_fields = ('name', 'email')
     list_per_page = 20
-admin.site.register(Cable, CableAdmin)
 
-class SwitchAdmin(admin.ModelAdmin):
-    list_display= ('id', 'title', 'is_published', 'price', 'list_date', 'is_topselling')
-    list_display_links = ('id', 'title')
-    
-    list_editable = ('is_published', 'is_topselling')
-    search_fields = ('title', 'description', 'price')
+admin.site.register(Product, ProductAdmin)
+
+class CatAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'slug')
+    list_editable = ('slug',)
+    list_display_link = ('name')
+    search_fields = ('name', 'email')
     list_per_page = 20
-admin.site.register(Switch, SwitchAdmin)
-
-class LightAdmin(admin.ModelAdmin):
-    list_display= ('id', 'title', 'is_published', 'price', 'list_date', 'is_topselling')
-    list_display_links = ('id', 'title')
-    
-    list_editable = ('is_published', 'is_topselling')
-    search_fields = ('title', 'description', 'price')
-    list_per_page = 20
-admin.site.register(Light, LightAdmin)
-
+admin.site.register(Category, CatAdmin)

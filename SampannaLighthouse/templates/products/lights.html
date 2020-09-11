@@ -12,7 +12,7 @@
 									<input type="checkbox" id="category-1">
 									<label for="category-1">
 										<span></span>
-										LED lights
+										LED lights lol
 										<small>(120)</small>
 									</label>
 								</div>
@@ -172,13 +172,13 @@
 					<div id="store" class="col-md-9">
 
 						<div class="row">
-							{% if lights %}
-								{% for light in lights %}
+							{% if products %}
+								{% for product in products %}
 									<!-- product -->
 									<div class="col-md-4 col-xs-6">
 										<div class="product">
 											<div class="product-img">
-												<img src="{{ light.photo_main.url }}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
@@ -186,8 +186,8 @@
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">{{light.title}}</a></h3>
-												<h4 class="product-price">Rs.{{light.price}} <del class="product-old-price">Rs.{{light.price}}</del></h4>
+												<h3 class="product-name"><a href="#">{{product.title}}</a></h3>
+												<h4 class="product-price">Rs.{{product.price}} <del class="product-old-price">Rs.{{product.price}}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -195,14 +195,15 @@
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
+												
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 											
-													<button class="quick-view"><a href="{% url 'productview' %}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}/"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart </button>
 											</div>
 										</div>
 									</div>
