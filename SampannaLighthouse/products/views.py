@@ -25,8 +25,11 @@ def cable(request):
 
 def gadget(request):
     product = Product.objects.filter(category= 4)
+    
+    
     context= {
-        'products' : product
+        'products' : product,
+        
     }
     return render(request, 'products/gadgets.html', context)
 
@@ -35,9 +38,14 @@ def productview(request, product_id):
 
     # product= [gadget1, switch]
     product= Product.objects.get(id= product_id)
+    # product2 = Product.objects.get(title= product_title)
+    
+
     # switch= Switch.objects.get(id= product_id)
     context = {
-        'product' : product
+        'product' : product,
+        # 'product2' : product2, 
+      
     }
     return render(request, 'products/productview.html', context)
 def cate(request):
