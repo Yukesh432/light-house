@@ -1,0 +1,85 @@
+#user-profile .users{
+    font-size: 38px;
+}
+.user-name{
+    /* text-align: right; */
+    border: 0.5px solid rgba(0, 0, 0, 0.507);
+    margin-bottom: 5px;
+}
+.user-name span{
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+#profile-img{
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50% ;
+}
+.user-area {
+    font-size: 18px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.507);
+    margin-bottom: 5px;
+}
+.user-area a{
+    padding: 20px 0px;
+    margin-bottom: 50px;
+}
+.user-area span{
+    margin-left: 10px;
+}
+.user-info{
+    margin-bottom: 5px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.507);
+}
+.user-logout{
+    text-align: right;
+}
+#product-desc{
+    margin-top: 60px;
+    text-align: center;
+    font-size: 48px;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+.product-text{
+    font-size: 20px;
+    margin: 20px 0px;
+}
+#review-section{
+    margin: 20px 0px;
+}
+.extra-section{
+    max-width: 1400px;
+    display: flex;
+}
+#about-us{
+    width: 750px;
+    margin: 5px auto;
+    text-align: center;
+}
+#about-us h1{
+    border-bottom: 0.2px solid black;
+}
+#about-us p{
+    font-size: 20px;
+    margin: 10px;
+}
+#contact-us{
+    width: 750px;
+    margin: auto;
+}
+#contact-us h2{
+    text-transform: uppercase;
+    padding: 10px;
+    width: 280px;
+    border-bottom: 2px dashed;
+}
+#contact-us p{
+    font-size: 20px;
+}
+#contact-us  .bold{
+    font-weight: 600;
+}

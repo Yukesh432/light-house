@@ -12,7 +12,7 @@
 		<link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-		<link type="text/css" rel="stylesheet" href="{% static 'css/try.css' %}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/extra.css' %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css' %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css' %}"/>
 		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css' %}"/>
@@ -115,21 +115,47 @@
 								</div>
 								{% if user.is_authenticated %}
 								
-								<div>
-									<a href="{% url 'profile' %}">
-										<i class="fa fa-sign-in" aria-hidden="true"></i>
-										<span>{{user.username}}</span>
+								<div id="user-profile" class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-user-circle users" aria-hidden="true"></i>		
 									</a>
+									<div class="cart-dropdown">
+										<a href="{% url 'profile' %}">
+											<div class="user-name">
+												<img id="profile-img" src="{% static './img/profile.png' %}">
+												<span>{{ user.username }}</span>
+											</div>
+										</a>
+										<div class="user-area">
+											<a href="{% url 'profile' %}"><i class="fa fa-user-circle" aria-hidden="true"></i><span>Manage Profile</span></a>
+											<div class="clearflix"></div>
+											<a href="{% url 'profile' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></i><span>Your Orders</span></a>
+											<div class="clearflix"></div>
+											<a href="{% url 'profile' %}"><i class="fa fa-heart" aria-hidden="true"></i><span>My wishlist</span></a>
+										</div>
+										<div class="user-info">
+											<a href="{% url 'profile' %}"><small>about</small></a>
+											<a href="{% url 'profile' %}"><small>terms and policy</small></a>
+											<a href="{% url 'profile' %}"><small>return order</small></a>
+											<a href="{% url 'profile' %}"><small>job offer</small></a>
+										</div>
+										<div class="user-logout">
+											<a href="{% url 'logout' %}">
+												<i class="fa fa-sign-in" aria-hidden="true"></i>
+												<span>Logout</span>
+											</a>
+										</div>
+									</div>
 								</div>
 
-								<div>
+								<!-- <div>
 									<a href="{% url 'logout' %}">
 										<i class="fa fa-sign-in" aria-hidden="true"></i>
 										<span>Logout</span>
 									</a>
-								</div>
+								</div> -->
 								{% else %}
-							<div>
+								<div>
 									<a href="{% url 'register' %}">
 										<i class="fa fa-sign-in" aria-hidden="true"></i>
 										<span>Register</span>
