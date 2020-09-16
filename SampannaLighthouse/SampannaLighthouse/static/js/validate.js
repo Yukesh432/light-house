@@ -1,7 +1,7 @@
 function validateform(){
     var fname = document.getElementById('fname').value;
     var lname = document.getElementById('lname').value;
-    var pass1 = document.getElementById('pass1').value;
+    var pass1 = document.getElementById('password').value;
     var pass2 = document.getElementById('pass2').value;
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;

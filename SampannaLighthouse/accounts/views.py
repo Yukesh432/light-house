@@ -12,7 +12,7 @@ def register(request):
         #get form values
         first_name= request.POST['fname']
         last_name= request.POST['lname']
-        username= request.POST['username']
+        username= request.POST['username'] 
         email= request.POST['email']
         password= request.POST['password'] 
         password2= request.POST['password2'] 
@@ -70,6 +70,10 @@ def logout(request):
 
 def checkout(request):
     return render(request, 'accounts/checkout.html')
+
+def recovery(request):
+    return render(request, 'accounts/recovery.html')
+
 
 @login_required
 def profile(request):

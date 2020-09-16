@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.http import HttpResponse
 
+
 def light(request):
     product = Product.objects.filter(category= 1)
     context= {
         'products' : product
     }
-    return render(request, 'products/lights.html', context)
+    return render(request, 'products/lights.html', context) 
 
 def switch(request):
     product = Product.objects.filter(category= 2)
@@ -50,5 +51,3 @@ def productview(request, product_id):
     return render(request, 'products/productview.html', context)
 def cate(request):
     return render(request, 'products/category.html')
-# def dummy(request):
-#     return render(request, 'products/dummy.html') 

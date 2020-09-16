@@ -70,39 +70,32 @@
 									<a href="{% url 'index' %}">
 										<i class="fa fa-heart-o"></i>
 										<span>Your Wishlist</span>
-										<div class="qty">2</div>
+										<div class="qty">8</div>
 									</a>
 								</div>
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
-										<div class="qty">3</div>
+										<div class="qty"><span class="cart">0</span></div>
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
+											{% for product in products %}
+											<!-- product added to cart -->
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="{% static 'img/product01.png' %}" alt="">
+													<img src="{{ product.photo_main.url }}" class="{{ product.photo_main.url }}" alt="">
 												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="productview/{{gadget1.id}}
-														">title goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+												<div class="product-body">qty
+													<h3 class="product-name" id="{{product.title}}"><a href="productview/{{product.id}}">{{product.title}}</a></h3>
+													<h4 class="product-price"><span class="">1x</span>$980.00</h4>
 												</div>
 												<button class="delete"><i class="fa fa-close"></i></button>
 											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="{% static './img/product02.png' %}" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="productview/{{gadget1.id}}">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
+											<!-- endproduct -->
+											{% endfor %}
+										
 										</div>
 										<div class="cart-summary">
 											<small>3 Item(s) selected</small>
@@ -236,7 +229,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title" style="font-size: 20px; color:red">New Products 1</h3>
+							<h3 class="title" >New Products </h3>
 							<!-- <div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">ceiling Light</a></li>
@@ -252,17 +245,19 @@
 							<div class="products-tabs">
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
+										{% for product in products %}
+										<!-- each product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="{% static './img/product01.png' %}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 												<div class="product-label">
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Light</p>
-												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Himstar ceiling light</a></h3>
-												<h4 class="product-price">Rs980.00 <del class="product-old-price">Rs990.00</del></h4>
+												<p class="product-category">{{product.category}}</p>
+												<h3 class="product-name" id="namepr{{product.id}}"><a href="productview/{{product.id}}">{{product.title}}</a></h3>
+												<h4 class="product-price">Rs{{product.price}} <del class="product-old-price">Rs{{product.price}}</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -272,110 +267,17 @@
 												</div>
 												<div class="product-btns"> 
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn cart" id="pr{{product.id}}"><i class="fa fa-shopping-cart "></i> add to cart</button>
 											</div>
 										</div>
-										<div class="product">
-											<div class="product-img">
-												<img src="{% static './img/product02.png' %}" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Himstar pannel light</a></h3>
-												<h4 class="product-price">Rs980.00 <del class="product-old-price">Rs990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<div class="product">
-											<div class="product-img">
-												<img src="{% static './img/product03.png' %}" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Smart Controller</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<div class="product">
-											<div class="product-img">
-												<img src="{% static './img/product04.png' %}" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Power & Controll device</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<div class="product">
-											<div class="product-img">
-												<img src="{% static './img/product05.png' %}" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="productview/{{gadget1.id}}">Protection device</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
+										{% endfor %}
+										
+									
+									
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
@@ -460,7 +362,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
 												</div>
 											</div>
 										</div>
@@ -483,7 +385,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -509,7 +411,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -519,7 +421,7 @@
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="{% static './img/product01.png' %}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
@@ -536,7 +438,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -577,7 +479,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -601,7 +503,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -627,7 +529,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -637,7 +539,7 @@
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="{% static './img/product01.png' %}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
@@ -653,7 +555,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>										
 										</div>
@@ -693,7 +595,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>											
 												</div>
 											</div>
 										</div>
@@ -716,7 +618,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -742,7 +644,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -752,7 +654,7 @@
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="{% static './img/product01.png' %}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
@@ -768,7 +670,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -809,7 +711,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -833,7 +735,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -859,7 +761,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>
 										
@@ -869,7 +771,7 @@
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
-												<img src="{% static './img/product01.png' %}" alt="">
+												<img src="{{ product.photo_main.url }}" alt="">
 											</div>
 											<div class="product-body">
 												<p class="product-category">Category</p>
@@ -885,7 +787,7 @@
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <span class="tooltipp">add to cart</span></button>
-													<button class="quick-view"><a href="productview/{{gadget1.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
+													<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>
 												</div>
 											</div>										
 										</div>
@@ -1036,5 +938,46 @@
 		<script src="{% static 'js/nouislider.min.js'%}"></script>
 		<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
 		<script src="{% static 'js/main.js' %}"></script>
+		{% block js %}
+		<script>
+
+		//find out the cart items from localstorage
+			if(localStorage.getItem('cart') == null){
+				var cart = {};
+
+			}else{
+				cart = JSON.parse(localStorage.getItem('cart'))
+				console.log(Object.keys(cart).length)
+				//document.getElementById('cart').innerHTML = Object.keys(cart).length;
+			}
+
+			//if the add to cart button is clicked, add/increment the item
+			 $('.cart').click(function(){
+				
+				var idstr = this.id.toString();
+				
+				console.log(idstr)
+		
+				
+				if (cart[idstr] !=undefined){
+					cart[idstr] = cart[idstr] +1;
+					console.log(cart[idstr])
+				}else{
+					cart[idstr] = 1;
+					console.log(cart[idstr])
+				}
+				localStorage.setItem('cart', JSON.stringify(cart))
+				document.querySelector('.cart').innerHTML = Object.keys(cart).length;
+				
+
+				
+			});
+
+			
+		
+
+
+		</script>
+		{% endblock js %}
 	</body>
 </html>

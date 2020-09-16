@@ -2215,6 +2215,34 @@ textarea.input {
   -ms-box-shadow: 0px 0px black;
   -moz-box-shadow: 0px 0px black;
 }
+#pass-reco{
+  width: 750px;
+  height: 300px;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid black;
+}
+#pass-reco input{
+  width: 670px;
+  padding: 10px 30px;
+  margin: 30px 10px;
+}
+#pass-reco button{
+  padding: 10px;
+  margin: 20px 0px ;
+  border-radius:10px ;
+  outline: none;
+  border: none;
+  background-color: black;
+  color: #B9BABC;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.555) ;
+}
+#pass-reco button:hover{
+  padding: 15px;
+}
+#pass-reco button:active{
+  box-shadow: 0px 0px rgba(0, 0, 0, 0.555) ;
+
 /*=========================================================
 	13 -> RESPONSIVE
 ===========================================================*/
