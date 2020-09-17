@@ -19,3 +19,9 @@ def about(request):
 def contact(request):
     
     return render(request, 'pages/contact.html')
+def termscondition(request):
+    
+    return render(request, 'pages/termscondition.html')
+def returnpolicy(request):
+    
+    return render(request, 'pages/returnpolicy.html')

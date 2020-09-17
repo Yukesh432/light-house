@@ -83,3 +83,23 @@
 #contact-us  .bold{
     font-weight: 600;
 }
+#terms-condition{
+    width: 1250px;
+    height: auto;
+    margin: 5px auto;
+    text-align: left;
+    border: 1px solid black;
+}
+#terms-condition strong{
+    text-decoration: underline;
+}
+#terms-condition p, ul, strong, table{
+    margin: 15px;
+}
+#terms-condition .space{
+    padding-left: 35px ;
+    padding-bottom: 15px;
+}
+#terms-condition .no-bottom{
+    padding-bottom: 0px !important;
+}

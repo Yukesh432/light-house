@@ -127,9 +127,9 @@
 											<a href="{% url 'profile' %}"><i class="fa fa-heart" aria-hidden="true"></i><span>My wishlist</span></a>
 										</div>
 										<div class="user-info">
-											<a href="{% url 'profile' %}"><small>about</small></a>
-											<a href="{% url 'profile' %}"><small>terms and policy</small></a>
-											<a href="{% url 'profile' %}"><small>return order</small></a>
+											<a href="{% url 'about' %}"><small>about</small></a>
+											<a href="{% url 'termscondition' %}"><small>terms and condition</small></a>
+											<a href="{% url 'returnpolicy' %}"><small>return order policy</small></a>
 											<a href="{% url 'profile' %}"><small>job offer</small></a>
 										</div>
 										<div class="user-logout">
@@ -184,7 +184,7 @@
 				</div>
 			</div>
         </nav>
-        {% block content %}
+		{% block content %}
 		<div class="section">
 			<div class="container">
 				<div class="row">
@@ -864,7 +864,7 @@
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
 								<ul class="footer-links">
-									<li><a href="hotdeal.html">Hot Deals</a></li>
+									<!-- <li><a href="hotdeal.html">Hot Deals</a></li> -->
 									<li><a href="{% url 'light' %}">Lights</a></li>
 									<li><a href="{% url 'switch' %}">Switch</a></li>
 									<li><a href="{% url 'cable' %}">Cables</a></li>
@@ -879,11 +879,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="aboutus.html">About Us</a></li>
-									<li><a href="contactus.html">Contact Us</a></li>
-									<li><a href="privacy.html">Privacy Policy</a></li>
-									<li><a href="return.html">Orders and Returns</a></li>
-									<li><a href="terms.html">Terms & Conditions</a></li>
+									<li><a href="{% url 'about' %}">About Us</a></li>
+									<li><a href="{% url 'contact' %}">Contact Us</a></li>
+									<!-- <li><a href="privacy.html">Privacy Policy</a></li> -->
+									<li><a href="{% url 'returnpolicy' %}">Orders and Returns</a></li>
+									<li><a href="{% url 'termscondition' %}">Terms & Conditions</a></li>
 								</ul>
 							</div>
 						</div>
