@@ -35,28 +35,24 @@
 								<h3 class="title">Billing address</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="first-name" placeholder="User Name">
 							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
-							</div>
+						
 							<div class="form-group">
 								<input class="input" type="email" name="email" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="city" placeholder="City" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="text" name="address" placeholder="Address I" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
+								<input class="input" type="text" name="address" placeholder="Address II">
 							</div>
+							
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
+								<input class="input" type="tel" name="tel" placeholder="Phone Number">
 							</div>
 							<!-- <div class="form-group">
 								<div class="input-checkbox">
@@ -127,21 +123,16 @@
 						<div class="section-title text-center">
 							<h3 class="title">Your Order</h3>
 						</div>
-						<div class="order-summary">
+						<div class="order-summary" >
 							<div class="order-col">
 								<div><strong>PRODUCT</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
-							<div class="order-products">
-								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
+
+							<div class="order-products" id="items">
+							<!-- dynamically adding product -->
 							</div>
+
 							<div class="order-col">
 								<div>Shiping</div>
 								<div><strong>FREE</strong></div>
@@ -199,3 +190,32 @@
 			<!-- /container -->
 		</div>
 {% endblock content %}
+{% block js %}
+<script>
+	if(localStorage.getItem('cart') == null){
+		var cart = {};
+	}else{
+		cart = JSON.parse(localStorage.getItem('cart'))
+	}
+	var sum= 0
+	if ($.isEmptyObject(cart)){
+		mystr = `<h5>Your Cart is Empty please add some items to your cart</h5>`
+		$('#items').append(mystr)
+
+
+	}else{
+
+		for(item in cart){
+			let name = cart[item][1];
+			let qty = cart[item][0];
+			sum = sum+qty
+			mystr = `	<div class="order-col">
+				<div>${qty}x ${name}</div>
+				<div>$980.00</div>
+			</div>`
+			$('#items').append(mystr);
+		}
+}
+document.getElementById('cart').innerHTML = sum;
+</script>
+{% endblock %}
