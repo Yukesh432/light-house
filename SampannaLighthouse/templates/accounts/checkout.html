@@ -30,34 +30,38 @@
 
 					<div class="col-md-7">
 						<!-- Billing Details -->
+					
+
 						<div class="billing-details">
+							<form action="/checkout/" method="POST">
+								{% csrf_token %}
+								<input type="hidden" name="itemsJson" id="itemsJson">
+							
 							<div class="section-title">
 								<h3 class="title">Billing address</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="name" id="username" placeholder="User Name">
+							</div>
+						
+							<div class="form-group">
+								<input class="input" type="email" name="email" id="email" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="city" id="city" placeholder="City" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="text" name="address_I" id="address_I" placeholder="Address I" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="address_II" id="address_II" placeholder="Address II">
 							</div>
+							
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="tel" name="phone" id="phone" placeholder="Phone Number">
 							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
-							</div>
+							<button type="submit" class="primary-btn order-submit">Place orderw</button>
+						</form>
 							<!-- <div class="form-group">
 								<div class="input-checkbox">
 									<input type="checkbox" id="create-account">
@@ -73,9 +77,9 @@
 							</div> -->
 						</div>
 						<!-- /Billing Details -->
-
+						
 						<!-- Shiping Details -->
-						<div class="shiping-details">
+						<!-- <div class="shiping-details">
 							<div class="section-title">
 								<h3 class="title">Shiping address</h3>
 							</div>
@@ -112,36 +116,31 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- /Shiping Details -->
 
-						<!-- Order notes -->
-						<div class="order-notes">
+					<!--	Order notes -->
+						<!-- <div class="order-notes">
 							<textarea class="input" placeholder="specify your address here"></textarea>
 						</div>
-						<!-- /Order notes -->
-					</div>
+						 /Order notes 
+					</div>-->
 
 					<!-- Order Details -->
 					<div class="col-md-5 order-details">
 						<div class="section-title text-center">
 							<h3 class="title">Your Order</h3>
 						</div>
-						<div class="order-summary">
+						<div class="order-summary" >
 							<div class="order-col">
 								<div><strong>PRODUCT</strong></div>
 								<div><strong>TOTAL</strong></div>
 							</div>
-							<div class="order-products">
-								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
+
+							<div class="order-products" id="items">
+							<!-- dynamically adding product -->
 							</div>
+
 							<div class="order-col">
 								<div>Shiping</div>
 								<div><strong>FREE</strong></div>
@@ -151,7 +150,7 @@
 								<div><strong class="order-total">$2940.00</strong></div>
 							</div>
 						</div>
-						<div class="payment-method">
+						<!-- <div class="payment-method">
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-1">
 								<label for="payment-1">
@@ -179,10 +178,10 @@
 									online payment
 								</label>
 								<div class="caption">
-									<p>We will be wuth online system soon.</p>
+									<p>We will be with online system soon.</p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
 							<label for="terms">
@@ -190,8 +189,9 @@
 								I've read and accept the <a href="#">terms & conditions</a>
 							</label>
 						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						<button class="primary-btn order-submit">Place order</button>
 					</div>
+				
 					<!-- /Order Details -->
 				</div>
 				<!-- /row -->
@@ -199,3 +199,40 @@
 			<!-- /container -->
 		</div>
 {% endblock content %}
+{% block js %}
+<script>
+	if(localStorage.getItem('cart') == null){
+		var cart = {};
+	}else{
+		cart = JSON.parse(localStorage.getItem('cart'))
+	}
+	var sum= 0
+	if ($.isEmptyObject(cart)){
+		mystr = `<h5>Your Cart is Empty please add some items to your cart</h5>`
+		$('#items').append(mystr)
+
+
+	}else{
+
+		for(item in cart){
+			let name = cart[item][1];
+			let qty = cart[item][0];
+			sum = sum+qty
+			mystr = `	<div class="order-col">
+				<div>${qty}x ${name}</div>
+				<div>$980.00</div>
+			</div>`
+			$('#items').append(mystr);
+		}
+}
+document.getElementById('cart').innerHTML = sum;
+$('#itemsJson').val(JSON.stringify(cart));
+{% if thank %}
+
+alert("Thnaks for ordering with us. Your order is {{id}}. Use it to track your order using order tracker")
+
+localStorage.clear();
+document.location = "/";
+{% endif %}
+</script>
+{% endblock %}

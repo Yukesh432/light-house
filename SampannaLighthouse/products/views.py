@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
+from .models import Product, Category, Order
 from django.http import HttpResponse
 
 
@@ -49,5 +49,23 @@ def productview(request, product_id):
       
     }
     return render(request, 'products/productview.html', context)
+
 def cate(request):
     return render(request, 'products/category.html')
+
+def checkout(request):
+    if request.method=="POST":
+        items_json = request.POST.get('itemsJson', '')
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        address= request.POST.get('address_I', '') + " " + request.POST.get('address_II', '') 
+      
+        city = request.POST.get('city', '')
+        phone = request.POST.get('phone', '')
+        order = Order(items_json =items_json, name=name, email=email, address=address, city=city, phone=phone)
+
+        order.save()
+        thank = True
+        id = order.order_id
+        return render(request, 'accounts/checkout.html', {'thank': thank, 'id': id})
+    return render(request, 'accounts/checkout.html') 
