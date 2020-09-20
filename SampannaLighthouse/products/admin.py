@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Product
+from .models import Category, Product, Order
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'category', 'price', 'is_published', 'is_topselling')
@@ -18,3 +18,12 @@ class CatAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     list_per_page = 20
 admin.site.register(Category, CatAdmin)
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('order_id', 'name', 'address', 'email', 'items_json')
+   
+    list_display_link = ('name')
+    search_fields = ('name', 'email')
+    list_per_page = 20
+admin.site.register(Order, OrderAdmin)
+
