@@ -89,13 +89,47 @@
 								<div class="qty-label">
 									Qty
 									<div class="input-number">
-										<input type="number">
+							<form action="{% url 'add_to_cart' product.title %}" method="POST">
+											{% csrf_token %}
+										<input type="number" value="1" name="qty">
 										<span class="qty-up">+</span>
 										<span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								
+								<button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								<hr>
+								{% if product.variation_set.all %}
+
+
+								{% if product.variation_set.sizes %}
+								<select name="size" class="form-control">
+			 						{% for item in product.variation_set.sizes %}
+										<option value="{{item.title|lower}}">{{item.title|capfirst}}</option>
+										{% endfor %}
+								</select>
+								{% endif %}
+								
+								{% if product.variation_set.colors %}
+								<select name="color" class="form-control">
+									{% for item in product.variation_set.colors %}
+										<option value="{{item.title|lower}}">{{item.title|capfirst}}</option>
+										{% endfor %}
+								</select>
+							{% endif %}
+
+							{% if product.variation_set.packages %}
+							<select name="package" class="form-control">
+								{% for item in product.variation_set.packages %}
+									<option value="{{item.title|lower}}">{{item.title|capfirst}}</option>
+									{% endfor %}
+							</select>
+						{% endif %}
+
+							{% endif %}
 							</div>
+							
+						</form>
 
 							<ul class="product-btns">
 								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>

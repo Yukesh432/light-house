@@ -1,0 +1,91 @@
+
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+		<!-- SECTION -->
+		<div class="container">
+			<div  id="search-heading"> 
+				<h4 >You searched for : 
+                    <span> {{query}}</span></h4>
+            </div>
+            {% if query|length < 1 %}
+            <p><br>Your search - {{query}}- did not match any document</p>
+     
+            {% elif query|length > 200  %}
+            <p>       <ul>
+                <li><b>Suggestions:</b></li>
+                <li>Try different suggestions</li>
+                <li>Try different Keywords</li>
+                <li>Try different suggestions</li>
+            </ul>
+</p>
+
+            {% endif %}
+            <div class="clearfix visible-xs"></div>
+            <div class="row">
+                {% for product in products %}
+                <a href="{{product.get_absolute_url }}">
+                <!-- product -->
+                <div class="col-md-3 col-xs-6"> 
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="{{ product.photo_main.url }}" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">{{product.category}}</p>
+                            <h3 class="product-name"><a href="{{product.get_absolute_url }}">{{product}}</a></h3>
+                            <h4 class="product-price">Rs.{{product.price}} <del class="product-old-price">Rs.{{product.price}}</del></h4>
+                            <div class="product-rating">
+                            </div>
+                            <div class="product-btns">
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>								
+                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                            </div>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <!-- product ends -->
+                {% endfor %}
+            </div>
+            <div class="clearfix visible-xs"></div>
+            <div  id="search-heading"> 
+				<h4 >related-search for : <span> <h5>{{query}}</h5></span></h4>
+            </div>
+            <div class="row">
+                
+                {% for product in productsAdd %}
+                <!-- product starts -->
+                <div class="col-md-3 col-xs-6">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="{{ product.photo_main.url }}" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">{{product.category}}</p>
+                            <h3 class="product-name"><a href="{{product.get_absolute_url }}">{{product.title}}</a></h3>
+                            <h4 class="product-price">Rs.{{product.price}} <del class="product-old-price">Rs.{{product.price}}</del></h4>
+                            <div class="product-rating">
+                            </div>
+                            <div class="product-btns">
+                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>								
+                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                            </div>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- products end -->
+                {% endfor %}
+
+            </div>
+        </div>
+    {% endblock content %}
+
+
+

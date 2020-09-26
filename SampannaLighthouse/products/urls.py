@@ -6,10 +6,12 @@ urlpatterns= [
     path('cables', views.cable, name= 'cable'),
     path('switchs', views.switch, name= 'switch'),
     path('gadgets', views.gadget, name= 'gadget'),
-    path('checkout/', views.checkout, name= 'checkout'),
     # path('productview/', views.productview, name= 'dummy'),
     path('productview/<int:product_id>/', views.productview, name= 'productview'),
-    path('cate', views.cate, name= 'cate'),
+    path('cate', views.cate, name= 'cate'), 
+    path('s/', views.search, name= 'search'),
+
+  
 
      
  

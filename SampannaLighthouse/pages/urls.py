@@ -8,4 +8,6 @@ urlpatterns= [
     path('contact', views.contact, name= 'contact'),
     path('termscondition', views.termscondition, name= 'termscondition'),
     path('returnpolicy', views.returnpolicy, name= 'returnpolicy'),
+
 ]  
+

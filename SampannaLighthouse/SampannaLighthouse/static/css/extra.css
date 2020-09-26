@@ -1,3 +1,5 @@
+/* css related to cart.html */
+
 #user-profile .users{
     font-size: 38px;
 }
@@ -103,3 +105,14 @@
 #terms-condition .no-bottom{
     padding-bottom: 0px !important;
 }
+
+/* results */
+#search-heading h4{
+    margin-top: 15px;
+    text-transform: capitalize;
+    border: 1px solid skyblue;
+    max-width: 450px;
+    padding: 8px;
+    box-shadow: hsl(221, 67%, 66%) 0 0 16px;
+  }
+
