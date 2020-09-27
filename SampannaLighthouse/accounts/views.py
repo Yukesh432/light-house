@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-
+from django.core.mail import send_mail
+from django.conf import settings
 
 # def register(request):
 #     return render(request, 'accounts/register.html')
@@ -33,6 +34,14 @@ def register(request):
                     # auth.login(request, user)
                     # messages.success(request, 'you are now logged in')
                     user.save()
+                    
+                    subject = 'Thank you for pre-order from Sampannalighthouse'
+                    message = "Welcome to Sampanna Light House. We are vey glad that you logged in to our website./n So, enjoy your day!"
+                    from_email = settings.EMAIL_HOST_USER
+                    to_list = [user.email, settings.EMAIL_HOST_USER]
+                    send_mail(subject, message, from_email, to_list, fail_silently= True)
+
+
                     messages.success(request, 'you are now registered in')
                     return redirect('login')
         else:
@@ -68,14 +77,11 @@ def logout(request):
     messages.success(request, 'You are now logged out')
     return redirect('login') 
 
-def checkout(request):
-    return render(request, 'accounts/checkout.html')
+
+
 
 def recovery(request):
-    return render(request, 'accounts/recovery.html')
-def newpass(request):
-    return render(request, 'accounts/newpass.html')
-
+    return render(request, 'accounts/login.html')
 
 @login_required
 def profile(request):
