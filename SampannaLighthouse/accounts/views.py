@@ -73,6 +73,8 @@ def checkout(request):
 
 def recovery(request):
     return render(request, 'accounts/recovery.html')
+def newpass(request):
+    return render(request, 'accounts/newpass.html')
 
 
 @login_required

@@ -10,5 +10,5 @@ urlpatterns= [
     path('profile/', views.profile, name= 'profile'),
     path('logout/', views.logout, name= 'logout'),
     path('recovery/', views.recovery, name= 'recovery'),
-
+    path('newpass/', views.newpass, name= 'newpass'),
 ]  
