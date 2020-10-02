@@ -10,15 +10,18 @@ def cart(request):
     try:
         the_id = request.session['cart_id']
         cart = Cart.objects.get(id = the_id)
+
     except:
         the_id = None 
     if the_id:
-        
+         
         new_total = 0.00
+        # each_tot= cart.cart_item.quantity * product.price
+        # print(each_tot)
         for item in cart.cartitem_set.all():
             line_total = float(item.product.price) * item.quantity
             new_total += line_total
-
+       
         request.session['items_total'] = cart.cartitem_set.count()
         # print(cart.products.count())
         cart.total = new_total
@@ -30,7 +33,7 @@ def cart(request):
         empty_message = "Your cart is empty, please keep shopping"
         context = {"empty": True, 'empty_message': empty_message}
 
-  
+   
      
     return render(request, 'carts/cart.html', context) 
  
@@ -38,7 +41,7 @@ def cart(request):
 def remove_from_cart(request, id):
     try:
         the_id = request.session['cart_id']
-        print("bookkkkkkkkkkkk")
+        # print("bookkkkkkkkkkkk")
         cart = Cart.objects.get(id = the_id)
  
     # print(cart)
@@ -70,6 +73,7 @@ def add_to_cart(request, title):
     try:
         the_id = request.session['cart_id']
 
+
     except:
         new_cart = Cart()
         new_cart.save()
@@ -100,7 +104,7 @@ def add_to_cart(request, title):
                 pass
         cart_item = CartItem.objects.create(cart= cart, product= product)
         print("bommmmmm")
-        print(cart_item)
+        # print(cart_item)
         if len(product_var)>0:
             cart_item.variations.add(*product_var)
         cart_item.quantity = qty

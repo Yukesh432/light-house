@@ -35,31 +35,39 @@
                         <div class="billing-details">
                             <form action="/checkout/" method="POST">
                                 {% csrf_token %}
-                                <input type="hidden" name="itemsJson" id="itemsJson">
+                               
                             
                                 <div class="section-title">
                                     <h3 class="title">Billing address</h3>
                                 </div>
+
                                 <div class="form-group">
-                                    <input class="input" type="text" name="name" id="username" placeholder="User Name">
+                                    <input type="hidden" name="user_username" value="{{ user.username }}">
                                 </div>
-                            
+
+                                <!-- <div class="form-group">
+                                    <input class="input" type="text" name="name"  placeholder="{{user.username}}">
+                                </div> -->
+                             
                                 <div class="form-group">
-                                    <input class="input" type="email" name="email" id="email" placeholder="Email">
+                                    <input class="input" type="email" name="email"  placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="city" id="city" placeholder="City" required>
+                                    <input class="input" type="text" name="city"  placeholder="City" >
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="address_I" id="address_I" placeholder="Address I" required>
+                                    <input class="input" type="text" name="address_I" placeholder="Address I" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="address_II" id="address_II" placeholder="Address II">
+                                    <input class="input" type="text" name="address_II"  placeholder="Address II">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input class="input" type="tel" name="phone" id="phone" placeholder="Phone Number">
-                                </div>
+                                    <input class="input" type="tel" name="phone"  placeholder="Phone Number">
+                                </div> 
+                                <div class="order-notes">
+                                    <textarea class="input" name= "address_description" placeholder="Specify your address here"></textarea>
+                               </div> 
                                 <button type="submit" class="primary-btn order-submit">Place orderw</button>
                             </form>
                             <!-- <div class="form-group">
@@ -120,9 +128,7 @@
                         <!-- /Shiping Details -->
                     
                         <!-- Order notes -->
-                         <div class="order-notes">
-                             <textarea class="input" placeholder="specify your address here"></textarea>
-                        </div> 
+
                     </div>
 
                     <!-- Order Details -->
@@ -136,17 +142,28 @@
                                 <div><strong>TOTAL</strong></div>
                             </div>
 
-                            <div class="order-products" id="items">
+                            <div class="order-products" >
+                                {% for item in cart.cartitem_set.all %}
+                                        <div class="order-col">
+                                            <div>{{item.quantity}}x {{item.product}} </div>
+                                            <div>Rs.{{item.product.price}}</div>
+                                        </div>
+                                
+
+                                    {% endfor %}
+                                   
                             <!-- dynamically adding product -->
                             </div>
 
                             <div class="order-col">
-                                <div>Shiping</div>
-                                <div><strong>FREE</strong></div>
+                                <!-- <div>Shiping</div>
+                                <div><strong>FREE</strong></div> -->
+            
+
                             </div>
                             <div class="order-col">
                                 <div><strong>TOTAL</strong></div>
-                                <div><strong class="order-total">$2940.00</strong></div>
+                                <div><strong class="order-total">Rs.{{cart.total}}</strong></div>
                             </div>
                         </div>
                         <!-- <div class="payment-method">
@@ -185,10 +202,10 @@
                             <input type="checkbox" id="terms">
                             <label for="terms">
                                 <span></span>
-                                I've read and accept the <a href="#">terms & conditions</a>
+                                I've read and accept the <a href="#"><em>Terms & Conditions</em></a>
                             </label>
                         </div>
-                        <a href="carts/user.html"><button class="primary-btn order-submit">Place order</button></a>
+                        <!-- <a href=""><button class="primary-btn order-submit">Place order</button></a> -->
                     </div>
                 
                     <!-- /Order Details -->

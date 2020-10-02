@@ -12,7 +12,7 @@
                 <table class="table">
                     <tr>
                         <th>
-                            <h5>Items: <strong>99</strong></h5>
+                            <h5>Items: <strong>9</strong></h5>
                         </th>
                         <th>
                             <h5>Total:<strong> Rs. {{cart.total}}</strong></h5>
@@ -50,7 +50,7 @@
                             {% for subitem in item.variations.all %}
                             <li>{{subitem.category|capfirst}}: {{subitem.title|capfirst}}
                                 {% endfor %}
-                            </li>
+                          </li>
                             
                         </ul>
                         {% endif %}
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div style="flex:1">
-                        <p>500</p>
+                        <p>____</p>
                             <a href='{% url "remove_from_cart" item.id %}'>Remove</a>
                     </div>
                 </div>

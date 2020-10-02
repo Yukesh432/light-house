@@ -10,7 +10,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length= 250, unique= True) 
 
     def __str__(self):
-        return self.name
+        return str(self.name)
  
 
 
@@ -32,7 +32,7 @@ class Product(models.Model):
     is_topselling = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
     def get_absolute_url(self):
         return reverse("productview", args= [self.id]) 

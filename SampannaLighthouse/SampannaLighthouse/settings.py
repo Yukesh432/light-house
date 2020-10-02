@@ -15,7 +15,7 @@ SECRET_KEY = '88&8ell**qwtds-u*zh-%p3#moay%-^1v(*=jo(b82dqc-+%uk'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ 
 
 #for gmail.....
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

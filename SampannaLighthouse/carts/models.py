@@ -28,6 +28,6 @@ class CartItem(models.Model):
             return str(self.cart.id)  
         except:
             return self.product.title
-    # def __str__(self):
-    #     return self.product
+    def __str__(self):
+        return self.product
       
