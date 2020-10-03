@@ -27,12 +27,13 @@
             <br>
             <div class="box-element">
                 <div class="cart-row">
-                    <div style="flex:2"></div>
-                    <div style="flex:2"><strong>Item</strong></div>
-                    <div style="flex:1"><strong>Price</strong></div>
+                    <div style="flex:2;  text-align: center;"></div>
+                    <div style="flex:2;  text-align: center;"><strong>Item</strong></div>
+                    <div style="flex:1;  text-align: center;"><strong>Price</strong></div>
                     <!-- <div style="flex:1"><strong>Variation</strong></div> -->
-                    <div style="flex:1"><strong>Quantity</strong></div>
-                    <div style="flex:1"><strong>Total</strong></div>
+                    <div style="flex:1;  text-align: center;"><strong>Quantity</strong></div>
+                    <div style="flex:1;  text-align: center;"><strong>Total</strong></div>
+                    <div style="flex:1;  text-align: center;"><strong></strong></div>
                 </div>
                 {% if empty %}
                 <h2>
@@ -44,7 +45,7 @@
                 {% for item in cart.cartitem_set.all %}
                 <div class="cart-row">
                     <div style="flex:2"><img class="row-image" src="{{ item.product.photo_main.url }}"></div>
-                    <div style="flex:2">
+                    <div style="flex:2; border-left: 0.5px solid rgba(128, 128, 128, 0.253); text-align: center;">
                         <p>{{item.product}}{% if item.variations.all %}
                         <ul>
                             {% for subitem in item.variations.all %}
@@ -56,7 +57,7 @@
                         {% endif %}
                         </p>
                     </div>
-                    <div style="flex:1">
+                    <div style="flex:1; border-left: 0.5px solid rgba(128, 128, 128, 0.253); text-align: center;">
                         <p>{{item.product.price}}</p>
 
                     </div>
@@ -64,7 +65,7 @@
                         <p>{{item.variations.all}}</p>
 
                     </div> -->
-                    <div style="flex:1">
+                    <div style="flex:1; border-left: 0.5px solid rgba(128, 128, 128, 0.253); text-align: center;">
                         <p class="quantity">{{item.quantity}}</p>
                         <div class="quantity">
                             <!-- <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart"
@@ -74,9 +75,13 @@
                                 class="chg-quantity update-cart" src="{% static './img/arrow-down.png' %}"> -->
                         </div>
                     </div>
-                    <div style="flex:1">
-                        <p>____</p>
-                            <a href='{% url "remove_from_cart" item.id %}'>Remove</a>
+                    <div style="flex:1; border-left: 0.5px solid rgba(128, 128, 128, 0.253); text-align: center;">
+                        <p class="totaal">n/a</p>
+                            
+                    </div>
+                    <div style="flex:1; border-left: 0.5px solid rgba(128, 128, 128, 0.253); text-align: center;">
+                        <p class="remove"><a href='{% url "remove_from_cart" item.id %}'><i class="fa fa-minus"></i></a></p>
+                            
                     </div>
                 </div>
                 {% endfor %}

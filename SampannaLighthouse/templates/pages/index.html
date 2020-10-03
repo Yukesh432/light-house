@@ -46,134 +46,128 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> Dhaneswor, kathmandu</a></li>
 					</ul>
 				</div>
-			</div>
-		<div id="header">
-			<div class="container">
-				<div class="row"> 
-					<div class="col-md-3">
-						<div class="header-logo">
-							<a href="{% url 'index' %}" class="logo">
-								<img src="{% static 'img/logo.png' %}" alt="">
-							</a>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="header-search">
-							<form action= '/s/'>
-								<!-- <select class="input-select">
-										<option value="0">All Categories</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
-									</select> -->
-								<input class="input" name="q" placeholder="Search here">
-								<button class="search-btn">Search</button>
-							</form>
-						</div>
-					</div>
-					<div class="col-md-3 clearfix">
-						<div class="header-ctn">
-							<div>
-								<a href="{% url 'index' %}">
-									<i class="fa fa-heart-o"></i>
-									<span>Your Wishlist</span>
-									<div class="qty">8</div>
+		</div>
+		<div id="allheader">
+			<div id="header">
+				<div class="container">
+					<div class="row"> 
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="{% url 'index' %}" class="logo">
+									<img src="{% static 'img/logo.png' %}" alt="">
 								</a>
 							</div>
-							<!-- <button type="button" id = "popcart" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-									Cart (<span id="cart">0</span>)</button> -->
-							<div class="dropdown">
-								<a href="{% url 'cart' %}" class="dropdown-toggle" >
-									<i class="fa fa-shopping-cart"></i>
-									<span>Your Cart</span>
-									<div class="qty">{% if not request.session.items_total %} 0 {% else %} {{request.session.items_total}}{% endif %}</div>
-								</a>
-
+						</div>
+						<div class="col-md-6">
+							<div class="header-search">
+								<form action= '/s/'>
+									<!-- <select class="input-select">
+											<option value="0">All Categories</option>
+											<option value="1">Category 01</option>
+											<option value="1">Category 02</option>
+										</select> -->
+									<input class="input" name="q" placeholder="Search here">
+									<button class="search-btn">Search</button>
+								</form>
 							</div>
-							{% if user.is_authenticated %}
-
-							<div id="user-profile" class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-									<i class="fa fa-user-circle users" aria-hidden="true"></i>
-								</a>
-								<div class="cart-dropdown">
-									<a href="{% url 'profile' %}">
-										<div class="user-name">
-											<i class="fa fa-user-circle" id="profile-img" aria-hidden="true"></i>
-											<span>{{ user.username }}</span>
-										</div>
+						</div>
+						<div class="col-md-3 clearfix"></div>
+							<div class="header-ctn">
+								<div class="dropdown">
+									<a href="{% url 'cart' %}" class="dropdown-toggle" >
+										<i class="fa fa-shopping-cart"></i>
+										
+										<div class="qty">{% if not request.session.items_total %} 0 {% else %} {{request.session.items_total}}{% endif %}</div>
 									</a>
-									<div class="user-area">
-										<a href="{% url 'profile' %}"><i class="fa fa-user-circle"
-												aria-hidden="true"></i><span>Manage Profile</span></a>
-										<div class="clearflix"></div>
-										<a href="{% url 'profile' %}"><i class="fa fa-shopping-cart"
-												aria-hidden="true"></i></i><span>Your Orders</span></a>
-										<div class="clearflix"></div>
-										<a href="{% url 'profile' %}"><i class="fa fa-heart"
-												aria-hidden="true"></i><span>My wishlist</span></a>
+	
+								</div>
+								{% if user.is_authenticated %}
+	
+								<div id="user-profile" class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-user-circle users" aria-hidden="true"></i>
+									</a>
+									<div class="cart-dropdown">
+										<a href="{% url 'profile' %}">
+											<div class="user-name">
+												<i class="fa fa-user-circle" id="profile-img" aria-hidden="true"></i>
+												<span>{{ user.username }}</span>
+											</div>
+										</a>
+										<div class="user-area">
+											<!-- <a href="{% url 'profile' %}"><i class="fa fa-user-circle"
+													aria-hidden="true"></i><span>Manage Profile</span></a>
+											<div class="clearflix"></div> -->
+											<a href="{% url 'profile' %}"><i class="fa fa-shopping-cart"
+													aria-hidden="true"></i></i><span>My Cart</span></a>
+											<div class="clearflix"></div>
+											<a href="{% url 'profile' %}"><i class="fa fa-motorcycle"
+													aria-hidden="true"></i><span>Track Order</span></a>
+										</div>
+										<div class="user-info">
+											<a href="{% url 'about' %}"><small>about</small></a>
+											<a href="{% url 'termscondition' %}"><small>terms and condition</small></a>
+											<a href="{% url 'returnpolicy' %}"><small>return order policy</small></a>
+											<a href="{% url 'profile' %}"><small>job offer</small></a>
+										</div>
+										<div class="user-logout">
+											<a href="{% url 'logout' %}">
+												<i class="fa fa-sign-in" aria-hidden="true"></i>
+												<span>Logout</span>
+											</a>
+										</div>
 									</div>
-									<div class="user-info">
-										<a href="{% url 'about' %}"><small>about</small></a>
-										<a href="{% url 'termscondition' %}"><small>terms and condition</small></a>
-										<a href="{% url 'returnpolicy' %}"><small>return order policy</small></a>
-										<a href="{% url 'profile' %}"><small>job offer</small></a>
-									</div>
-									<div class="user-logout">
+								</div>
+	
+								<!-- <div>
 										<a href="{% url 'logout' %}">
 											<i class="fa fa-sign-in" aria-hidden="true"></i>
 											<span>Logout</span>
 										</a>
-									</div>
+									</div> -->
+								{% else %}
+								<div>
+									<a href="{% url 'register' %}">
+										<i class="fa fa-sign-in" aria-hidden="true"></i>
+										
+									</a>
+								</div>
+	
+								{% endif %}
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
 								</div>
 							</div>
-
-							<!-- <div>
-									<a href="{% url 'logout' %}">
-										<i class="fa fa-sign-in" aria-hidden="true"></i>
-										<span>Logout</span>
-									</a>
-								</div> -->
-							{% else %}
-							<div>
-								<a href="{% url 'register' %}">
-									<i class="fa fa-sign-in" aria-hidden="true"></i>
-									<span>Register</span>
-								</a>
-							</div>
-
-							{% endif %}
-							<div class="menu-toggle">
-								<a href="#">
-									<i class="fa fa-bars"></i>
-									<span>Menu</span>
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
+			<nav id="navigation">
+				<div class="container">
+					<div id="responsive-nav">
+						<ul class="main-nav nav navbar-nav">
+							{% with url_name=request.resolver_match.url_name %}
+							<li class="{% if url_name == 'index'%} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
+							<!-- <li><a href="hotdeal.html">Hot Deals</a></li> -->
+							<li class="{% if url_name == 'light'%} active {% endif %}"><a href="{% url 'light' %}">Lights</a>
+							</li>
+							<li class="{% if url_name == 'switch'%} active {% endif %}"><a href="{% url 'switch' %}">Switchs</a>
+							</li>
+							<li class="{% if url_name == 'cable'%} active {% endif %}"><a href="{% url 'cable' %}">Cables</a>
+							</li>
+							<li class="{% if url_name == 'gadget'%} active {% endif %}"><a href="{% url 'gadget' %}">Electric
+									Gadgets</a></li>
+							{% endwith %}
+						</ul>
+					</div>
+				</div>
+			</nav>
 		</div>
+		
 	</header>
-	<nav id="navigation">
-		<div class="container">
-			<div id="responsive-nav">
-				<ul class="main-nav nav navbar-nav">
-					{% with url_name=request.resolver_match.url_name %}
-					<li class="{% if url_name == 'index'%} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
-					<!-- <li><a href="hotdeal.html">Hot Deals</a></li> -->
-					<li class="{% if url_name == 'light'%} active {% endif %}"><a href="{% url 'light' %}">Lights</a>
-					</li>
-					<li class="{% if url_name == 'switch'%} active {% endif %}"><a href="{% url 'switch' %}">Switchs</a>
-					</li>
-					<li class="{% if url_name == 'cable'%} active {% endif %}"><a href="{% url 'cable' %}">Cables</a>
-					</li>
-					<li class="{% if url_name == 'gadget'%} active {% endif %}"><a href="{% url 'gadget' %}">Electric
-							Gadgets</a></li>
-					{% endwith %}
-				</ul>
-			</div>
-		</div>
-	</nav>
+	
 
 	{% block content %}
 	<div class="container-fluid " id="banner">
@@ -285,20 +279,6 @@
 													href="productview/{{product.id}}">{{product.title}}</a></h3>
 											<h4 class="product-price" >Rs{{product.price}}
 												<del class="product-old-price">Rs{{product.price}}</del></h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-														class="tooltipp">add to wishlist</span></button>
-												<button class="quick-view"><a href="productview/{{product.id}}"><i
-															class="fa fa-eye"></i><span class="tooltipp">View
-															Product</span></a></button>
-											</div>
 										</div>	
 									</div>
 									
@@ -312,41 +292,83 @@
 			</div>
 		</div>
 	</div>
-	<div id="hot-deal" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="hot-deal">
-						<ul class="hot-deal-countdown">
-							<li>
-								<div>
-									<h3>02</h3>
-									<span>Days</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>10</h3>
-									<span>Hours</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>34</h3>
-									<span>Mins</span>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>60</h3>
-									<span>Secs</span>
-								</div>
-							</li>
-						</ul>
-						<h2 class="text-uppercase">hot deal this week</h2>
-						<p>New Collection Up to 50% OFF</p>
-						<a class="primary-btn cta-btn" href="#">Shop now</a>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="banner-slider" class="carousel slide" data-ride="carousel">
+					<!-- indicators dot nav  -->
+					<ol class="carousel-indicators">
+						<li data-target="#banner-slider" data-slide-to="0" class="active"></li>
+						<li data-target="#banner-slider" data-slide-to="1"></li>
+						<li data-target="#banner-slider" data-slide-to="2"></li>
+					</ol>
+					<!-- wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="hot-deal slider-content">
+								<ul class="hot-deal-countdown">
+									<li>
+										<div>
+											<h3>02</h3>
+											<span>Days</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<h3>10</h3>
+											<span>Hours</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<h3>34</h3>
+											<span>Mins</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<h3>60</h3>
+											<span>Secs</span>
+										</div>
+									</li>
+								</ul>
+								<h2 class="text-uppercase">hot deal this week</h2>
+								<p>New Collection Up to 50% OFF</p>
+								<a class="primary-btn cta-btn" href="#">Shop now</a>
+							</div>
+						</div>
+						<div class="item ">	
+							<div class="slider-content">
+								<h1>BUY BEST WALL-LIGHTS</h1>
+								<ul>
+									<li class="slider-img">
+										<img src="/img/product01.png" alt="">
+										<img src="/img/product02.png" alt="">
+										<img src="/img/product03.png" alt="">
+										<img src="/img/product04.png" alt="">
+										<img src="/img/product03.png" alt="">
+									</li>
+								</ul>	
+							</div>
+						</div>
+						<div class="item">
+							<div class="slider-content">
+								<h1>second SLIDE</h1>
+								<ul>
+									<li class="slider-img">
+										<img src="/img/product01.png" alt="">
+										<img src="/img/product02.png" alt="">
+										<img src="/img/product03.png" alt="">
+										<img src="/img/product04.png" alt="">
+										<img src="/img/product03.png" alt="">
+									</li>
+								</ul>
+							</div>	
+						</div>
+						
 					</div>
+					<!-- controls or next/prev -->
+					<!-- <a href="https://www.youtube.com/watch?v=1FnMDubA25A&ab_channel=QuentinWattTutorials">for next and prev button</a> -->
 				</div>
 			</div>
 		</div>
@@ -379,17 +401,6 @@
 											<p class="product-category">{{product.category}}</p>
 											<h3 class='product-name' ><a href="productview/{{product.id}}">{{product.title}}</a></h3>
 											<h4 class="product-price">Rs.{{product.price}} <del class="product-old-price">Rs.{{product.price}}</del></h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Add to wishlist</span></button>		
-												<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>								
-											</div>
 										</div>
 									</div>
 								</div>
@@ -406,55 +417,19 @@
 
 	{% endblock content %}
 	<!-- /SECTION -->
-
-	<!-- <div id="newsletter" class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-	<!-- /NEWSLETTER -->
 	<!-- FOOTER -->
-	<div class="row">
-		<div class="container" id="footer-tag">
-			<div class="col-md-4">
-				<img src="{% static './img/secure-payment.png' %}" alt="secure-payment">
-				<div class="clearfix visible-xs"></div>
-				<h5>secure payment</h5>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static './img/deliver.png' %}" alt="deliver">
-				<div class="clearfix visible-xs"></div>
-				<h5>On Time Delivery</h5>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static './img/customer-support.png' %}" alt="customer-support">
-				<div class="clearfix visible-xs"></div>
-				<h5>Customer support  </h5>
-			</div>
+	<div class="container" id="footer-tag">
+		<div class="col-md-4">
+			<img src="{% static './img/secure-payment.png' %}" alt="secure-payment">
+			<h5>secure payment</h5>
+		</div>
+		<div class="col-md-4">
+			<img src="{% static './img/deliver.png' %}" alt="deliver">
+			<h5>On Time Delivery</h5>
+		</div>
+		<div class="col-md-4">
+			<img src="{% static './img/customer-support.png' %}" alt="customer-support">
+			<h5>Customer support  </h5>
 		</div>
 	</div>
 	<div class="clearfix visible-xs"></div>
@@ -468,9 +443,7 @@
 					<div class="col-md-3 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">About Us</h3>
-							<p>Sampanna light house is the online store where we sell all the electrical supplies.
-								Sampanna Light House is the growing online store to sell the electric product inside
-								nepal.</p>
+							<p>Sampanna light house is the online store where we sell all the electrical supplies. Sampanna Light House is the growing online store to sell the electric product inside nepal.</p>
 							<ul class="footer-links">
 								<li><a href="#"><i class="fa fa-map-marker"></i>Dhaneswor, kathmandu</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+977-9841416262</a></li>
@@ -479,15 +452,15 @@
 						</div>
 					</div>
 
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-2 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">Categories</h3>
 							<ul class="footer-links">
 								<!-- <li><a href="hotdeal.html">Hot Deals</a></li> -->
-								<li><a href="{% url 'light' %}">Lights</a></li>
-								<li><a href="{% url 'switch' %}">Switch</a></li>
+								<li><a href="{% url 'light' %}">lights</a></li>
+								<li><a href="{% url 'switch' %}">switch</a></li>
 								<li><a href="{% url 'cable' %}">Cables</a></li>
-								<li><a href="{% url 'gadget' %}">Electric Gadgets</a></li>
+								<li><a href="{% url 'gadget' %}">electric gadget</a></li>
 							</ul>
 						</div>
 					</div>
@@ -499,15 +472,22 @@
 							<h3 class="footer-title">Information</h3>
 							<ul class="footer-links">
 								<li><a href="{% url 'about' %}">About Us</a></li>
-								<li><a href="{% url 'contact' %}">Contact Us</a></li>
-								<!-- <li><a href="privacy.html">Privacy Policy</a></li> -->
+								<li><a href="{% url 'contact' %}">Contact Us</a></li>							
 								<li><a href="{% url 'returnpolicy' %}">Orders and Returns</a></li>
 								<li><a href="{% url 'termscondition' %}">Terms & Conditions</a></li>
 							</ul>
 						</div>
 					</div>
 
-					<div class="col-md-3 col-xs-6">
+					<div class="col-md-2 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">FOLLOW US ON</h3>
+							<ul class="footer-links">
+								<li><a href="https://www.facebook.com/sampannaligh"><i class="fa fa-facebook" aria-hidden="true"></i>facebook</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">Service</h3>
 							<ul class="footer-links">
@@ -558,6 +538,7 @@
 	<script src="{% static 'js/nouislider.min.js'%}"></script>
 	<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/cart.js' %}"></script>
 
 	<!-- ya block js  -->
 
