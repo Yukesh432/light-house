@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import UserProfile
 
 # def register(request):
 #     return render(request, 'accounts/register.html')
@@ -17,7 +19,11 @@ def register(request):
         password= request.POST['password'] 
         password2= request.POST['password2'] 
         phone = request.POST['phone']
+        # print("PPPPOOOPPPP")
+        # userprofile= UserProfile()
+        # userprofile.user = User.username
         
+        # print(userprofile.user)        
 
         if password == password2:
             #check username
@@ -33,11 +39,28 @@ def register(request):
                     # auth.login(request, user)
                     # messages.success(request, 'you are now logged in')
                     user.save()
+                    
+                    subject = 'Thank you for pre-order from Sampannalighthouse'
+                    message = "Welcome to Sampanna Light House. We are vey glad that you logged in to our website./n So, enjoy your day!"
+                    from_email = settings.EMAIL_HOST_USER
+                    to_list = [user.email, settings.EMAIL_HOST_USER]
+                    send_mail(subject, message, from_email, to_list, fail_silently= True)
+
+
                     messages.success(request, 'you are now registered in')
                     return redirect('login')
         else:
             messages.error(request, 'Password donot match')
             return redirect('register')
+
+        #create UserProfile Form
+
+    
+        # userprofile.phone = phone
+        # userprofile.email = email
+        # userprofile.gender = request.POST.get('gender')
+        # userprofile.address = "-"
+        # userprofile.save()
             
     else:
         return render(request, 'accounts/register.html')
@@ -68,12 +91,11 @@ def logout(request):
     messages.success(request, 'You are now logged out')
     return redirect('login') 
 
-def checkout(request):
-    return render(request, 'accounts/checkout.html')
+
+
 
 def recovery(request):
-    return render(request, 'accounts/recovery.html')
-
+    return render(request, 'accounts/login.html')
 
 @login_required
 def profile(request):

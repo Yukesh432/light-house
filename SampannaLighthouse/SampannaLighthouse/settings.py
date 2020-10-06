@@ -15,6 +15,16 @@ SECRET_KEY = '88&8ell**qwtds-u*zh-%p3#moay%-^1v(*=jo(b82dqc-+%uk'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ 
+
+#for gmail.....
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nepalyukesh9@gmail.com'
+EMAIL_HOST_PASSWORD = 'quartz123!@#'
+EMAIL_PORT = 587
+
 
 
 # Application definition
@@ -31,8 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     'products',
-    'carts',
-    'orders',
+    # 'carts',
+    'order',
     #apps added for allauth
     
     # 'django.contrib.sites',

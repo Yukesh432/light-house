@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,8 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
 	<link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 	<link type="text/css" rel="stylesheet" href="{% static 'css/extra.css' %}" />
 	<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css' %}" />
@@ -36,19 +38,15 @@
 <body>
 	<header>
 		<!-- TOP HEADER -->
-		<!-- <div id="top-header">
+		<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
-					</ul>
-					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +977-9841416262</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> sampannalh@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Dhaneswor, kathmandu</a></li>
 					</ul>
 				</div>
-			</div> -->
+			</div>
 		<div id="header">
 			<div class="container">
 				<div class="row"> 
@@ -84,45 +82,12 @@
 							<!-- <button type="button" id = "popcart" class="btn btn-secondary mx-2" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
 									Cart (<span id="cart">0</span>)</button> -->
 							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+								<a href="{% url 'cart' %}" class="dropdown-toggle" >
 									<i class="fa fa-shopping-cart"></i>
 									<span>Your Cart</span>
-									<div class="qty">{% if not request.session.items_total %} 0 {% else %} {{request.session.items_total}}{% endif %}</div>
+									<div class="qty"> {{count}} </div>
 								</a>
-								<div class="cart-dropdown">
-									<div class="cart-list">
-										<!-- {% for product in products %} -->
-										<!-- product added to cart -->
-										<!-- <div class="product-widget">
-												<div class="product-img">
-													<img src="{{ product.photo_main.url }}" class="{{ product.photo_main.url }}" alt="">
-												</div>
-												<div class="product-body">qty
-													<h3 class="product-name" id="{{product.title}}"><a href="productview/{{product.id}}">{{product.title}}</a></h3>
-													<h4 class="product-price"><span id="popover1">1x</span>$980.00</h4>
-													<div class="popover"></div>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div> -->
 
-										<div class="product-body"></div>
-
-
-
-										<!-- endproduct -->
-										<!-- {% endfor %} -->
-
-									</div>
-									<div class="cart-summary">
-										<small id='item_selected'>3 Item(s) selected</small>
-										<h5 id="total_items">SUBTOTAL: Rs.2940.00</h5>
-									</div>
-									<div class="cart-btns">
-										<a href="{% url 'cart' %}">Go to Cart <i
-												class="fa fa-arrow-circle-right"></i></a>
-									
-									</div>
-								</div>
 							</div>
 							{% if user.is_authenticated %}
 
@@ -133,7 +98,7 @@
 								<div class="cart-dropdown">
 									<a href="{% url 'profile' %}">
 										<div class="user-name">
-											<img id="profile-img" src="{% static './img/profile.png' %}">
+											<i class="fa fa-user-circle" id="profile-img" aria-hidden="true"></i>
 											<span>{{ user.username }}</span>
 										</div>
 									</a>
@@ -209,7 +174,36 @@
 			</div>
 		</div>
 	</nav>
+
 	{% block content %}
+	<div class="container-fluid " id="banner">
+		<div class="row">
+			<div class="col-md-4 brand-name">
+				<span class="l-s">S</span>
+				<span class="l-a">A</span>
+				<span class="l-m">M</span>
+				<span class="l-p">P</span>
+				<span class="l-m">A</span>
+				<span class="l-n">A</span>
+				<span class="l-n">N</span>
+				<span class="l-s">A</span>
+				<h4>LIGHT HOUSE</h4>
+			</div>
+			<div class="col-md-4 brand-img">
+				<img src="{% static './img/bulb.png' %}" alt="bulb" class="bulb bulb-1">
+					<h4>BUY NOW <i class="fa fa-shopping-cart"></i></h4>
+					<!-- <h4>SHOP NOW</h4> -->
+				<img src="{% static './img/bulb.png' %}" alt="bulb" class="bulb bulb-2">
+				<img src="{% static './img/bulb.png' %}" alt="bulb" class="bulb bulb-3">
+			</div>
+			<div class="col-md-4 brand-info">
+				<pre>सस्तो होइन क्वालिटी खोजौ
+क्वालिटी को लागि सम्मपन्न ब्रान्ड नै रोजौ!!
+
+			-सम्पन्न लाइट हाउस </pre>
+			</div>
+		</div>
+	</div>
 	<div class="section">
 		<div class="container">
 			<div class="row">
@@ -275,14 +269,16 @@
 								<div class="products-slick" data-nav="#slick-nav-1">
 									{% for product in products %}
 									<!-- each product -->
+									
 									<div class="product">
-										<div class="product-img">
-										
+										<a href="productview/{{product.id}}">
+										<div class="product-img">									
 												<img class="img_size" src="{{ product.photo_main.url }}" alt="">
 											<div class="product-label">
 												<span class="new">NEW</span>
 											</div>
 										</div>
+										</a>
 										<div class="product-body">
 											<p class="product-category">{{product.category}}</p>
 											<h3 class="product-name" ><a
@@ -303,18 +299,10 @@
 															class="fa fa-eye"></i><span class="tooltipp">View
 															Product</span></a></button>
 											</div>
-										</div>
-										
-
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-										</div>
-										
+										</div>	
 									</div>
+									
 									{% endfor %}
-
-
-
 								</div>
 								<div id="slick-nav-1" class="products-slick-nav"></div>
 							</div>
@@ -371,113 +359,48 @@
 						<h3 class="title">Top selling</h3>
 					</div>
 				</div>
-				<div class="col-md-12">
+				
+				<div id="store" class="col-md-12">
 					<div class="row">
-						<div class="products-tabs">
-							<!-- tab -->
-							<div id="tab2" class="tab-pane fade in active">
-								<div class="products-slick" data-nav="#slick-nav-2">
-									{% for product in products %}
-									<!-- product -->
+						{% for product in products %}
+						{% if product.is_topselling %}
+						<!-- product -->
+							<a href="productview/{{product.id}}">
+								<div class="col-md-3 col-xs-6">
 									<div class="product">
 										<div class="product-img">
-											<img src="{{ product.photo_main.url }}" alt="">
-											<div class="product-label">
+											<img class="img_size" src="{{ product.photo_main.url }}" alt="">
+											<!-- <div class="product-label">
+												<span class="sale">-30%</span>
 												<span class="new">NEW</span>
-											</div>
+											</div> -->
 										</div>
 										<div class="product-body">
 											<p class="product-category">{{product.category}}</p>
-											<h3 class="product-name"><a href="#">{{product.title}}</a></h3>
-											<h4 class="product-price">Rs.{{product.price}} <del
-													class="product-old-price">Rs.{{product.price}}</del></h4>
+											<h3 class='product-name' ><a href="productview/{{product.id}}">{{product.title}}</a></h3>
+											<h4 class="product-price">Rs.{{product.price}} <del class="product-old-price">Rs.{{product.price}}</del></h4>
 											<div class="product-rating">
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star"></i>
 											</div>
 											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-														class="tooltipp">add to wishlist</span></button>
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>
-													<span class="tooltipp">add to cart</span></button>
-												<button class="quick-view"><a href="productview/{{product.id}}"><i
-															class="fa fa-eye"></i><span class="tooltipp">View
-															Product</span></a></button>
+												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Add to wishlist</span></button>		
+												<button class="quick-view"><a href="productview/{{product.id}}"><i class="fa fa-eye"></i><span class="tooltipp">View Product</span></a></button>								
 											</div>
 										</div>
 									</div>
-									{% endfor %}
-									<!-- /product -->
-
 								</div>
-								<!-- <div id="slick-nav-2" class="products-slick-nav"></div> -->
-							</div>
-							<!-- /tab -->
-						</div>
+							</a>
+							<!-- /product -->
+						{% endif %}
+						{% endfor %}
 					</div>
 				</div>
-				<div class="col-md-12">
-					<div class="row">
-						<div class="products-tabs">
-							<!-- tab -->
-							<div id="tab2" class="tab-pane fade in active">
-								<div class="products-slick" data-nav="#slick-nav-2">
-									{% for product in products %}
-									{% if product.is_topselling %}
-									<!-- product -->
-									<div class="product">
-										<div class="product-img">
-											<img src="{{ product.photo_main.url }}" alt="">
-											<div class="product-label">
-												<span class="new">NEW</span>
-											</div>
-										</div>
-										<div class="product-body">
-											<p class="product-category">{{product.category}}</p>
-											<h3 class="product-name"><a href="#">{{product.title}}</a></h3>
-											<h4 class="product-price">Rs.{{product.price}} <del
-													class="product-old-price">Rs.{{product.price}}</del></h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-														class="tooltipp">add to wishlist</span></button>
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>
-													<span class="tooltipp">add to cart</span></button>
-												<button class="quick-view"><a href="productview/{{product.id}}"><i
-															class="fa fa-eye"></i><span class="tooltipp">View
-															Product</span></a></button>
-											</div>
-										</div>
-
-									</div>
-									<!-- /product -->
-									{% endif %}
-									{% endfor %}
-
-
-								</div>
-								<!-- <div id="slick-nav-2" class="products-slick-nav"></div> -->
-							</div>
-							<!-- /tab -->
-						</div>
-					</div>
-				</div>
-
-
-				<!-- /Products tab & slick -->
 			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
+		</div>	
 	</div>
 	<!-- /SECTION -->
 
@@ -515,6 +438,26 @@
 		</div> -->
 	<!-- /NEWSLETTER -->
 	<!-- FOOTER -->
+	<div class="row">
+		<div class="container" id="footer-tag">
+			<div class="col-md-4">
+				<img src="{% static './img/secure-payment.png' %}" alt="secure-payment">
+				<div class="clearfix visible-xs"></div>
+				<h5>secure payment</h5>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static './img/deliver.png' %}" alt="deliver">
+				<div class="clearfix visible-xs"></div>
+				<h5>On Time Delivery</h5>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static './img/customer-support.png' %}" alt="customer-support">
+				<div class="clearfix visible-xs"></div>
+				<h5>Customer support  </h5>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix visible-xs"></div>
 	<footer id="footer">
 		<!-- top footer -->
 		<div class="section">
