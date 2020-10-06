@@ -5,7 +5,10 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+<<<<<<< HEAD
 from .models import UserProfile
+=======
+>>>>>>> dd68b189e98b072c2f8fac59112139352088294d
 
 # def register(request):
 #     return render(request, 'accounts/register.html')

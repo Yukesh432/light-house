@@ -15,6 +15,7 @@
                 </ul>
             </div>
         </div>
+<<<<<<< HEAD:SampannaLighthouse/templates/order/checkout.html
         <!-- /row -->
     </div>
     <!-- /container -->
@@ -74,6 +75,60 @@
                         <button type="submit" class="primary-btn order-submit">Place orderw</button>
                     </form>
                     <!-- <div class="form-group">
+=======
+        <!-- /BREADCRUMB -->
+
+        <!-- SECTION -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <!-- Billing Details -->
+                    
+
+                        <div class="billing-details">
+                            <form action="/checkout/" method="POST">
+                                {% csrf_token %}
+                               
+                            
+                                <div class="section-title">
+                                    <h3 class="title">Billing address</h3>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="hidden" name="user_username" value="{{ user.username }}">
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <input class="input" type="text" name="name"  placeholder="{{user.username}}">
+                                </div> -->
+                             
+                                <div class="form-group">
+                                    <input class="input" type="email" name="email"  placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="input" type="text" name="city"  placeholder="City" >
+                                </div>
+                                <div class="form-group">
+                                    <input class="input" type="text" name="address_I" placeholder="Address I" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="input" type="text" name="address_II"  placeholder="Address II">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input class="input" type="tel" name="phone"  placeholder="Phone Number">
+                                </div> 
+                                <div class="order-notes">
+                                    <textarea class="input" name= "address_description" placeholder="Specify your address here"></textarea>
+                               </div> 
+                                <button type="submit" class="primary-btn order-submit">Place orderw</button>
+                            </form>
+                            <!-- <div class="form-group">
+>>>>>>> dd68b189e98b072c2f8fac59112139352088294d:SampannaLighthouse/templates/carts/checkout.html
                                 <div class="input-checkbox">
                                     <input type="checkbox" id="create-account">
                                     <label for="create-account">
@@ -128,6 +183,7 @@
                                 </div>
                             </div>
                         </div> -->
+<<<<<<< HEAD:SampannaLighthouse/templates/order/checkout.html
                 <!-- /Shiping Details -->
 
                 <!-- Order notes -->
@@ -143,15 +199,47 @@
                     <div class="order-col">
                         <div><strong>PRODUCT</strong></div>
                         <div><strong>TOTAL</strong></div>
+=======
+                        <!-- /Shiping Details -->
+                    
+                        <!-- Order notes -->
+
+>>>>>>> dd68b189e98b072c2f8fac59112139352088294d:SampannaLighthouse/templates/carts/checkout.html
                     </div>
 
                     {% for item in shopcart %}
                     <div class="order-products">
 
+<<<<<<< HEAD:SampannaLighthouse/templates/order/checkout.html
                         <div class="order-col">
                             <div>{{item.quantity}}x {{item.product}} </div>
 
                             <div>Rs.{{ item.product.price}}</div>
+=======
+                            <div class="order-products" >
+                                {% for item in cart.cartitem_set.all %}
+                                        <div class="order-col">
+                                            <div>{{item.quantity}}x {{item.product}} </div>
+                                            <div>Rs.{{item.product.price}}</div>
+                                        </div>
+                                
+
+                                    {% endfor %}
+                                   
+                            <!-- dynamically adding product -->
+                            </div>
+
+                            <div class="order-col">
+                                <!-- <div>Shiping</div>
+                                <div><strong>FREE</strong></div> -->
+            
+
+                            </div>
+                            <div class="order-col">
+                                <div><strong>TOTAL</strong></div>
+                                <div><strong class="order-total">Rs.{{cart.total}}</strong></div>
+                            </div>
+>>>>>>> dd68b189e98b072c2f8fac59112139352088294d:SampannaLighthouse/templates/carts/checkout.html
                         </div>
 
 
@@ -205,12 +293,26 @@
                                 </div>
                             </div>
                         </div> -->
+<<<<<<< HEAD:SampannaLighthouse/templates/order/checkout.html
                 <div class="input-checkbox">
                     <input type="checkbox" id="terms">
                     <label for="terms">
                         <span></span>
                         I've read and accept the <a href="#"><em>Terms & Conditions</em></a>
                     </label>
+=======
+                        <div class="input-checkbox">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">
+                                <span></span>
+                                I've read and accept the <a href="#"><em>Terms & Conditions</em></a>
+                            </label>
+                        </div>
+                        <!-- <a href=""><button class="primary-btn order-submit">Place order</button></a> -->
+                    </div>
+                
+                    <!-- /Order Details -->
+>>>>>>> dd68b189e98b072c2f8fac59112139352088294d:SampannaLighthouse/templates/carts/checkout.html
                 </div>
                 <!-- <a href=""><button class="primary-btn order-submit">Place order</button></a> -->
             </div>
